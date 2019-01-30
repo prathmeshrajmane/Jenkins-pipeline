@@ -1,28 +1,21 @@
 pipeline {
     agent any
-	
-    tools {
-        maven 'M2_HOME' 
-    }
+
     stages {
-        stage('Compile stage') {
+        stage('Build') {
             steps {
-                bat "mvn clean compile" 
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
         }
     }
-
-         stage('testing stage') {
-             steps {
-                bat "mvn test"
-        }
-    }
-
-          stage('deployment stage') {
-              steps {
-                bat "mvn deploy"
-        }
-    }
-
-  }
-
 }
